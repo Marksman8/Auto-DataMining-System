@@ -1,0 +1,46 @@
+<h2>Heatmap</h2>
+<img src="{{ visuals['heatmap'] }}" width="600px" />
+
+{% if visuals.scatter %}
+<h2>Scatter Plot</h2>
+<img src="{{ visuals['scatter'] }}" width="600px" />
+{% endif %}
+
+{% if visuals.boxplot %}
+<h2>Box Plot</h2>
+<img src="{{ visuals['boxplot'] }}" width="600px" />
+{% endif %}
+
+{% if visuals.lineplot %}
+<h2>Line Plot</h2>
+<img src="{{ visuals['lineplot'] }}" width="600px" />
+{% endif %}
+
+{% if visuals.piechart %}
+<h2>Pie Chart</h2>
+<img src="{{ visuals['piechart'] }}" width="400px" />
+{% endif %}
+
+<hr>
+
+<h2>Association Rules</h2>
+{{ rules|safe }}
+<hr>
+
+<h2>Clustering Summary</h2>
+<p>{{ clusters }}</p>
+<hr>
+
+<h2>AutoML Model Used</h2>
+<p>{{ model }}</p>
+<hr>
+
+<!-- 👇 Go Back Button -->
+<form action="{{ url_for('index') }}" method="get">
+    <button type="submit" style="padding: 10px 20px; margin-top: 20px;">⬅ Go Back to Upload</button>
+</form>
+
+<a href="{{ url_for('static', filename='cleaned_dataset.csv') }}" download>
+    <button style="padding: 10px 20px; margin-top: 10px;">📥 Download Cleaned Dataset</button>
+</a>
+
